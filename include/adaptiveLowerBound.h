@@ -1,0 +1,36 @@
+#ifndef __TIMSORT_ADAPTIVE_LOWER_BOUND_H__
+#define __TIMSORT_ADAPTIVE_LOWER_BOUND_H__
+
+#include <iterator>
+
+namespace timsort {
+    template <class RAIterator, class T = typename std::iterator_traits<RAIterator>::value_type, class Comparator>
+    RAIterator lowerBound(RAIterator begin, RAIterator end, const T &val, Comparator cmp) {
+        if (begin == end || cmp(val, *begin)) {
+            return begin;
+        }
+        while (end - begin > 1) {
+            RAIterator middle = begin + (end - begin) / 2;
+            if (cmp(*middle, val)) {
+                begin = middle;
+            } else {
+                end = middle;
+            }
+        }
+        return end;
+    }
+
+    template <class RAIterator, class T = typename std::iterator_traits<RAIterator>::value_type, class Comparator>
+    RAIterator adaptiveLowerBound(RAIterator begin, RAIterator end, const T &val, Comparator cmp) {
+        if (begin == end || cmp(val, *begin)) {
+            return begin;
+        }
+        std::size_t offset = 1;
+        while ((begin + offset) < end && cmp(*(begin + offset), val)) {
+            offset <<= 1;
+        }
+        return lowerBound(begin + offset / 2, std::min(end, begin + offset), val, cmp);
+    }
+}
+
+#endif // __TIMSORT_ADAPTIVE_LOWER_BOUND_H__

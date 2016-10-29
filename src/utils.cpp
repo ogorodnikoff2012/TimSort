@@ -1,15 +1,6 @@
 #include <utils.h>
 
 namespace timsort {
-    std::size_t getMinrun(std::size_t length) {
-        std::size_t r = 0;
-        while (length >= 64) {
-            r |= length & 1;
-            length >>= 1;
-        }
-        return length + r;
-    }
-
     double abs(double x) {
         return x < 0 ? -x : x;
     }

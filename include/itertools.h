@@ -99,25 +99,71 @@ namespace timsort {
         typedef std::random_access_iterator_tag iterator_category;
 
         IteratorReverser(const RAIterator &it) : iter_(it) {}
-        value_type &operator *() const {
-            return *(iter_ - 1);
-        }
-        const IteratorReverser<RAIterator> operator ++(int) {
-            IteratorReverser<RAIterator> ans = *this;
-            --iter_;
-            return ans;
-        }
-        const IteratorReverser<RAIterator> operator +(const difference_type diff) const { 
-            return IteratorReverser<RAIterator>(iter_ - diff);
-        }
+        IteratorReverser(const IteratorReverser<RAIterator> &it) : iter_(it.iter_) {}
+
         bool operator ==(const IteratorReverser<RAIterator> &other) {
             return iter_ == other.iter_;
         }
         bool operator !=(const IteratorReverser<RAIterator> &other) {
             return !operator ==(other);
         }
+
+        reference operator *() const {
+            return *(iter_ - 1);
+        }
+        pointer operator ->() const {
+            return iter_ - 1;
+        }
+
+        IteratorReverser<RAIterator> &operator ++() {
+            --iter_;
+            return *this;
+        }
+        IteratorReverser<RAIterator> &operator --() {
+            ++iter_;
+            return *this;
+        }
+        const IteratorReverser<RAIterator> operator ++(int) {
+            IteratorReverser<RAIterator> ans = *this;
+            --iter_;
+            return ans;
+        }
+        const IteratorReverser<RAIterator> operator --(int) {
+            IteratorReverser<RAIterator> ans = *this;
+            ++iter_;
+            return ans;
+        }
+        
+        const IteratorReverser<RAIterator> operator +(const difference_type diff) const { 
+            return IteratorReverser<RAIterator>(iter_ - diff);
+        }
+        const IteratorReverser<RAIterator> operator -(const difference_type diff) const { 
+            return IteratorReverser<RAIterator>(iter_ + diff);
+        }
         difference_type operator -(const IteratorReverser<RAIterator> &other) const {
             return other.iter_ - iter_;
+        }
+
+        bool operator <(const IteratorReverser<RAIterator> &other) const {
+            return other.iter_ < iter_;
+        }
+        bool operator >(const IteratorReverser<RAIterator> &other) const {
+            return other.iter_ > iter_;
+        }
+        bool operator <=(const IteratorReverser<RAIterator> &other) const {
+            return other.iter_ <= iter_;
+        }
+        bool operator >=(const IteratorReverser<RAIterator> &other) const {
+            return other.iter_ >= iter_;
+        }
+
+        IteratorReverser<RAIterator> &operator +=(const difference_type diff) {
+            iter_ -= diff;
+            return *this;
+        }
+        IteratorReverser<RAIterator> &operator -=(const difference_type diff) {
+            iter_ += diff;
+            return *this;
         }
     };
 
