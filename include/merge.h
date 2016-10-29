@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_MERGE_H__
-#define __TIMSORT_MERGE_H__
+#ifndef TIMSORT_MERGE_H
+#define TIMSORT_MERGE_H
 
 #include "utils.h"
 #include "itertools.h"
@@ -62,4 +62,4 @@ namespace timsort {
 
 }
 
-#endif // __TIMSORT_MERGE_H__
+#endif // TIMSORT_MERGE_H

@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_ITERTOOLS_H__
-#define __TIMSORT_ITERTOOLS_H__
+#ifndef TIMSORT_ITERTOOLS_H
+#define TIMSORT_ITERTOOLS_H
 
 #include <utility>
 #include <iterator>
@@ -185,4 +185,4 @@ namespace timsort {
 
 }
 
-#endif // __TIMSORT_ITERTOOLS_H__
+#endif // TIMSORT_ITERTOOLS_H

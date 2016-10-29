@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_ADAPTIVE_LOWER_BOUND_H__
-#define __TIMSORT_ADAPTIVE_LOWER_BOUND_H__
+#ifndef TIMSORT_ADAPTIVE_LOWER_BOUND_H
+#define TIMSORT_ADAPTIVE_LOWER_BOUND_H
 
 #include <iterator>
 
@@ -33,4 +33,4 @@ namespace timsort {
     }
 }
 
-#endif // __TIMSORT_ADAPTIVE_LOWER_BOUND_H__
+#endif // TIMSORT_ADAPTIVE_LOWER_BOUND_H

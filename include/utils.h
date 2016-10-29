@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_UTILS_H__
-#define __TIMSORT_UTILS_H__
+#ifndef TIMSORT_UTILS_H
+#define TIMSORT_UTILS_H
 
 #include <cstdint>
 
@@ -10,4 +10,4 @@ namespace timsort {
     
 }
 
-#endif // __TIMSORT_UTILS_H__
+#endif // TIMSORT_UTILS_H

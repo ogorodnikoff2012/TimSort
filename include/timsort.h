@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_TIMSORT_H__
-#define __TIMSORT_TIMSORT_H__
+#ifndef TIMSORT_TIMSORT_H
+#define TIMSORT_TIMSORT_H
 
 #include "list.h"
 #include "utils.h"
@@ -8,6 +8,7 @@
 #include "inplaceMerge.h"
 #include "slowsort.h"
 #include "params.h"
+#include "debug.h"
 
 #include <iterator>
 
@@ -18,6 +19,7 @@ namespace timsort {
         std::size_t dummyLength;
         TRun(RAIterator begin, RAIterator end, std::size_t dummyLength = 0) : begin(begin), 
                 end(end), dummyLength(dummyLength) {  }
+        TRun(const TRun<RAIterator> &run) : begin(run.begin), end(run.end), dummyLength(run.dummyLength) {}
         std::size_t length() const {
             return dummyLength ? dummyLength : std::distance(begin, end);
         }
@@ -25,6 +27,17 @@ namespace timsort {
             return dummyLength; // != 0
         }
     };
+
+    template <class RAIterator>
+    std::ostream &operator <<(std::ostream &o, const TRun<RAIterator> &run) {
+        o << "Length: " << run.length() << ' ';
+        if (run.dummy()) {
+            o << "<dummy>";
+        } else {
+            __ostr_iter<RAIterator>(o, run.begin) << run.end;
+        }
+        return o;
+    }
 
     template <class RAIterator, class Comparator>
     void appendRun(List<TRun<RAIterator>> &runList, 
@@ -70,7 +83,10 @@ namespace timsort {
 // template arguments are copied from http://stackoverflow.com/questions/2447458/
 template <class RAIterator, class Comparator>
 void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::ITimSortParams &params) {
-    using namespace timsort;
+    using timsort::TRun;
+    using timsort::List;
+    using timsort::insertionSort;
+
     typedef TRun<RAIterator> Run;
 
     // step 0: get minimum run length
@@ -113,7 +129,7 @@ void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::IT
                 ++runLength;
             }
             if (!isIncreasing) {
-                reverse(runBegin, runEnd);
+                timsort::reverse(runBegin, runEnd);
             }
         } else {
             insertionSort(runBegin, runEnd, cmp);
@@ -154,4 +170,4 @@ void TimSort(RAIterator begin, RAIterator end) {
     TimSort(begin, end, std::less<typename std::iterator_traits<RAIterator>::value_type>(), timsort::StdTimSortParams());
 }
 
-#endif // __TIMSORT_TIMSORT_H__
+#endif // TIMSORT_TIMSORT_H

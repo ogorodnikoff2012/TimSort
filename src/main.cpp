@@ -1,8 +1,13 @@
 #include "timsort.h"
+#include <algorithm>
 #include <vector>
 #include <iostream>
 
-using namespace std;
+using std::vector;
+using std::ostream;
+using std::cin;
+using std::cout;
+using std::endl;
 
 template <class T>
 ostream &operator <<(ostream &o, const vector<T> &v) {
@@ -31,12 +36,15 @@ int main() {
     for (int i = 1; i < size; ++i) {
         v[i] = (a * v[i - 1] + b) % c;
     }
+    vector<int> v2(v);
 #ifndef NO_OUTPUT
     cout << v << endl;
 #endif
     TimSort(v.begin(), v.end());
+    std::sort(v2.begin(), v2.end());
 #ifndef NO_OUTPUT
     cout << v << endl;
+    cout << v2 << endl;
 #endif
     return 0;
 }

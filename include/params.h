@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_PARAMS_H__
-#define __TIMSORT_PARAMS_H__
+#ifndef TIMSORT_PARAMS_H
+#define TIMSORT_PARAMS_H
 
 #include <cstdint>
 
@@ -26,4 +26,4 @@ namespace timsort {
     };
 }
 
-#endif // __TIMSORT_PARAMS_H__
+#endif // TIMSORT_PARAMS_H

@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_LIST_H__
-#define __TIMSORT_LIST_H__
+#ifndef TIMSORT_LIST_H
+#define TIMSORT_LIST_H
 
 // begin(), end(), push_back(), pop_back(), back(), erase()
 
@@ -39,6 +39,14 @@ namespace timsort {
         ListNode *pre_begin_, *end_;
         std::size_t size_;
     public:
+        typedef T value_type;
+        typedef std::size_t size_type;
+        typedef std::ptrdiff_t difference_type;
+        typedef value_type &reference;
+        typedef const value_type &const_reference;
+        typedef value_type *pointer;
+        typedef const value_type *const_pointer;
+
         List() : pre_begin_(new ListNode), end_(new ListNode), size_(0) {
             pre_begin_->right = end_;
             end_->left = pre_begin_;
@@ -116,4 +124,4 @@ namespace timsort {
     };
 }
 
-#endif // __TIMSORT_LIST_H__
+#endif // TIMSORT_LIST_H

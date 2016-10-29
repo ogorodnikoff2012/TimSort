@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_SLOWSORT_H__
-#define __TIMSORT_SLOWSORT_H__
+#ifndef TIMSORT_SLOWSORT_H
+#define TIMSORT_SLOWSORT_H
 
 #include <iterator>
 #include "utils.h"
@@ -37,4 +37,4 @@ namespace timsort {
 
 }
 
-#endif // __TIMSORT_SLOWSORT_H__
+#endif // TIMSORT_SLOWSORT_H

@@ -1,5 +1,5 @@
-#ifndef __TIMSORT_INPLACE_MERGE_H__
-#define __TIMSORT_INPLACE_MERGE_H__
+#ifndef TIMSORT_INPLACE_MERGE_H
+#define TIMSORT_INPLACE_MERGE_H
 
 #include "merge.h"
 #include "params.h"
@@ -18,7 +18,7 @@ namespace timsort {
 
         std::size_t blockLength = sqrt(length);
         std::size_t blocksCount = length / blockLength;
-        std::size_t secondRun = std::distance(border, begin);
+        std::size_t secondRun = std::distance(begin, border);
         std::size_t blockWithFirstRunEnd = (secondRun - 1) / blockLength;
         RAIterator lastBlockBegin = begin + (blocksCount - 1) * blockLength;
         
@@ -49,4 +49,4 @@ namespace timsort {
     }
 }
 
-#endif // __TIMSORT_INPLACE_MERGE_H__
+#endif // TIMSORT_INPLACE_MERGE_H
