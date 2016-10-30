@@ -13,7 +13,9 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f1b259b-1f45-4db1-beaa-de9456175355" name="Default" comment="" />
+    <list default="true" id="5f1b259b-1f45-4db1-beaa-de9456175355" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+    </list>
     <ignored path="timsort.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,7 +49,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-              <folding />
+              <folding>
+                <marker date="1477825856770" expanded="true" signature="148:384" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,7 +59,7 @@
       <file leaf-file-name="tests.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tests.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
+            <state relative-caret-position="4212">
               <caret line="122" column="72" selection-start-line="122" selection-start-column="72" selection-end-line="122" selection-end-column="72" />
               <folding />
             </state>
@@ -133,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -419,12 +423,12 @@
       <option name="presentableId" value="Default" />
       <updated>1477778346006</updated>
       <workItem from="1477778347676" duration="6091000" />
-      <workItem from="1477822602032" duration="3610000" />
+      <workItem from="1477822602032" duration="4202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9701000" />
+    <option name="totallyTimeSpent" value="10293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-3" width="3204" height="1757" extended-state="6" />
@@ -648,7 +652,7 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -665,13 +669,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding />
+          <folding>
+            <marker date="1477825856770" expanded="true" signature="148:384" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
+        <state relative-caret-position="4212">
           <caret line="122" column="72" selection-start-line="122" selection-start-column="72" selection-end-line="122" selection-end-column="72" />
           <folding />
         </state>
