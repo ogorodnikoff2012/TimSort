@@ -25,11 +25,11 @@ namespace timsort {
         if (begin == end || cmp(val, *begin)) {
             return begin;
         }
-        std::size_t offset = 1;
-        while ((begin + offset) < end && cmp(*(begin + offset), val)) {
+        std::size_t offset = 1, length = end - begin;
+        while (offset < length && cmp(*(begin + offset), val)) {
             offset <<= 1;
         }
-        return lowerBound(begin + offset / 2, std::min(end, begin + offset), val, cmp);
+        return lowerBound(begin + offset / 2, begin + std::min(offset, length), val, cmp);
     }
 }
 

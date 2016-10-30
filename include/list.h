@@ -106,7 +106,7 @@ namespace timsort {
             ++size_;
         }
         T &back() const {
-            return *(end_->right->data);
+            return *(end_->left->data);
         }
         void popBack() {
             eraseBefore(end_);

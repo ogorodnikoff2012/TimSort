@@ -15,7 +15,7 @@
 #include <iostream>
 
 #define PRINT(x) _DEBUG_STREAM << #x << ": " << (x) << std::endl;
-#define IT_PRINT(name, begin, end) _DEBUG_STREAM << #name << ": " << (begin) << (end) << std::endl;
+#define IT_PRINT(name, begin, end) _DEBUG_STREAM << #name << ": "; _make_ostr_iter(_DEBUG_STREAM, begin) << (end) << std::endl;
 #define WRITE(x) _DEBUG_STREAM << x << std::endl;
 #define DELIM WRITE("=========================================");
 
@@ -71,6 +71,11 @@ struct __ostr_iter
         it(_it) 
     {}
 };
+
+template <class T>
+__ostr_iter<T> _make_ostr_iter(std::ostream &out, T iter) {
+    return __ostr_iter<T>(out, iter);
+}
 
 template <class T>
 struct __printable

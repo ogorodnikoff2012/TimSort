@@ -18,6 +18,7 @@ namespace testing {
     extern std::size_t testsCount;
 
     bool doTest(const Test &test);
+    int rand(bool reset = false);
 }
 
 #endif //TIMSORT_TESTS_H

@@ -33,8 +33,8 @@ namespace timsort {
         o << "Length: " << run.length() << ' ';
         if (run.dummy()) {
             o << "<dummy>";
-        } else {
-            __ostr_iter<RAIterator>(o, run.begin) << run.end;
+        //} else {
+        //    __ostr_iter<RAIterator>(o, run.begin) << run.end;
         }
         return o;
     }
@@ -43,6 +43,10 @@ namespace timsort {
     void appendRun(List<TRun<RAIterator>> &runList, 
             typename List<TRun<RAIterator>>::iterator newRun, Comparator cmp,
             const ITimSortParams &params) {
+#ifdef DEBUG
+        IT_PRINT(Runs, runList.begin(), ++newRun);
+        --newRun;
+#endif
         auto itZ = newRun, itY = newRun, itX = newRun;
         std::advance(itY, -1);
         std::advance(itX, -2);
@@ -52,7 +56,7 @@ namespace timsort {
         if (itY->dummy()) {
             whatMerge = WM_NoMerge;
         } else if (itX->dummy()) {
-            if (params.needMerge(itZ->length(), itY->length())) {
+            if (params.needMerge(itY->length(), itZ->length())) {
                 whatMerge = WM_MergeYZ;
             } else {
                 whatMerge = WM_NoMerge;
