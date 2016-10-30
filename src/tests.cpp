@@ -20,7 +20,7 @@ double measureTime(Func f) {
 }
 */
 
-bool testVector(int vectorSize) {
+bool testVectorOfRandomInts(int vectorSize) {
     using namespace std::chrono;
     std::vector<int> v(vectorSize);
     v[0] = testing::rand(true);
@@ -52,7 +52,7 @@ bool testVector(int vectorSize) {
     return ok;
 }
 
-bool testArray(int arraySize) {
+bool testArrayOfRandomInts(int arraySize) {
     using namespace std::chrono;
     int *arr = new int[arraySize];
     arr[0] = testing::rand(true);
@@ -89,24 +89,38 @@ bool testArray(int arraySize) {
     return ok;
 }
 
+bool testVariousVectorsOfRandomInts() {
+    const int LENGTHS[] = {50, 100, 1000, 10000, 100000, 1000000};
+    const int TESTS_COUNT = sizeof(LENGTHS) / sizeof(LENGTHS[0]);
+    for (int i = 0; i < TESTS_COUNT; ++i) {
+        std::cout << "Subtest #" << (i + 1) << ". Length = " << LENGTHS[i] << ":" << std::endl;
+        bool ok = testVectorOfRandomInts(LENGTHS[i]);
+        std::cout << (ok ? "OK" : "Failed") << std::endl;
+        if (!ok) {
+            return false;
+        }
+    }
+    return true;
+}
 
+bool testVariousArraysOfRandomInts() {
+    const int LENGTHS[] = {50, 100, 1000, 10000, 100000, 1000000};
+    const int TESTS_COUNT = sizeof(LENGTHS) / sizeof(LENGTHS[0]);
+    for (int i = 0; i < TESTS_COUNT; ++i) {
+        std::cout << "Subtest #" << (i + 1) << ". Length = " << LENGTHS[i] << ":" << std::endl;
+        bool ok = testArrayOfRandomInts(LENGTHS[i]);
+        std::cout << (ok ? "OK" : "Failed") << std::endl;
+        if (!ok) {
+            return false;
+        }
+    }
+    return true;
+}
 
 namespace testing {
     Test tests[] = {
-            Test{"Vector of random values (50)", std::bind(testVector, 50)},
-            Test{"Array of random values (50)", std::bind(testArray, 50)},
-            Test{"Vector of random values (100)", std::bind(testVector, 100)},
-            Test{"Array of random values (100)", std::bind(testArray, 100)},
-            Test{"Vector of random values (1000)", std::bind(testVector, 1000)},
-            Test{"Array of random values (1000)", std::bind(testArray, 1000)},
-            Test{"Vector of random values (10000)", std::bind(testVector, 10000)},
-            Test{"Array of random values (10000)", std::bind(testArray, 10000)},
-            Test{"Vector of random values (100000)", std::bind(testVector, 100000)},
-            Test{"Array of random values (100000)", std::bind(testArray, 100000)},
-            Test{"Vector of random values (1000000)", std::bind(testVector, 1000000)},
-            Test{"Array of random values (1000000)", std::bind(testArray, 1000000)},
-            Test{"Vector of random values (1000000)", std::bind(testVector, 1000000)},
-            Test{"Array of random values (1000000)", std::bind(testArray, 1000000)},
+            Test{"Vectors of random values", testVariousVectorsOfRandomInts},
+            Test{"Arrays of random values", testVariousArraysOfRandomInts},
     };
     std::size_t testsCount = sizeof(tests) / sizeof(Test);
 

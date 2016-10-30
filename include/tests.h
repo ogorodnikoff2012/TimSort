@@ -11,7 +11,7 @@
 namespace testing {
     struct Test {
         std::string description;
-        std::function<bool()> testFunc;
+        std::function<bool(void)> testFunc;
     };
 
     extern Test tests[];
