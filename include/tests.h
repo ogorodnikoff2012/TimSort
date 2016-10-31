@@ -19,6 +19,12 @@ namespace testing {
 
     bool doTest(const Test &test);
     int rand(bool reset = false);
+
+    const std::string VERDICT_OK = "\033[32;1mOK\033[0m";
+    const std::string VERDICT_FAILED = "\033[31;1mFailed\033[0m";
+    const std::string TEST_HEADER = "\033[33;1mTest\033[0m #";
+    const std::string SUBTEST_HEADER = "\033[36;1mSubtest\033[0m #";
+
 }
 
 #endif //TIMSORT_TESTS_H

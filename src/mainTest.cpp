@@ -7,7 +7,7 @@
 
 int main() {
     for (int i = 0; i < testing::testsCount; ++i) {
-        std::cout << "Test #" << (i + 1) << ". ";
+        std::cout << testing::TEST_HEADER << (i + 1) << ". ";
         if (!testing::doTest(testing::tests[i])) {
             return i + 1;
         }
