@@ -20,6 +20,35 @@ double measureTime(Func f) {
 }
 */
 
+template <class RAIter1, class RAIter2, class Comparator>
+bool compareSorts(RAIter1 beginTim, RAIter1 endTim, RAIter2 beginStd, RAIter2 endStd, Comparator cmp, const timsort::ITimSortParams &params) {
+    using namespace std::chrono;
+    steady_clock::time_point stdBegin = steady_clock::now();
+    std::sort(beginStd, endStd, cmp);
+    steady_clock::time_point stdEnd = steady_clock::now();
+
+    steady_clock::time_point TimBegin = steady_clock::now();
+    TimSort(beginTim, endTim, cmp, params);
+    steady_clock::time_point TimEnd = steady_clock::now();
+
+    double stdSortTimeMs = duration_cast<nanoseconds>(stdEnd - stdBegin).count() / 1e6;
+    double TimSortTimeMs = duration_cast<nanoseconds>(TimEnd - TimBegin).count() / 1e6;
+
+    bool ok = true;
+    RAIter1 it1 = beginTim;
+    RAIter2 it2 = beginStd;
+    while (it1 != endTim && it2 != endStd) {
+        ok &= *it1++ == *it2++;
+    }
+    if (ok) {
+        std::cout << "std::sort time is " << stdSortTimeMs << " ms." << std::endl;
+        std::cout << "TimSort time is " << TimSortTimeMs << " ms." << std::endl;
+        std::cout << "std::sort is " << TimSortTimeMs / stdSortTimeMs << " times faster than TimSort" << std::endl;
+    }
+    return ok;
+
+}
+
 bool testVectorOfRandomInts(int vectorSize) {
     using namespace std::chrono;
     std::vector<int> v(vectorSize);
@@ -28,28 +57,7 @@ bool testVectorOfRandomInts(int vectorSize) {
         v[i] = rand();
     }
     std::vector<int> v2(v);
-
-    steady_clock::time_point stdBegin = steady_clock::now();
-    std::sort(v2.begin(), v2.end());
-    steady_clock::time_point stdEnd = steady_clock::now();
-
-    steady_clock::time_point TimBegin = steady_clock::now();
-    TimSort(v.begin(), v.end());
-    steady_clock::time_point TimEnd = steady_clock::now();
-
-    double stdSortTimeMs = duration_cast<nanoseconds>(stdEnd - stdBegin).count() / 1e6;
-    double TimSortTimeMs = duration_cast<nanoseconds>(TimEnd - TimBegin).count() / 1e6;
-
-    bool ok = true;
-    for (int i = 0; i < vectorSize; ++i) {
-        ok &= v[i] == v2[i];
-    }
-    if (ok) {
-        std::cout << "std::sort time is " << stdSortTimeMs << " ms." << std::endl;
-        std::cout << "TimSort time is " << TimSortTimeMs << " ms." << std::endl;
-        std::cout << "std::sort is " << TimSortTimeMs / stdSortTimeMs << " times faster than TimSort" << std::endl;
-    }
-    return ok;
+    return compareSorts(v.begin(), v.end(), v2.begin(), v2.end(), std::less<int>(), timsort::StdTimSortParams());
 }
 
 bool testArrayOfRandomInts(int arraySize) {
@@ -64,26 +72,7 @@ bool testArrayOfRandomInts(int arraySize) {
         arr2[i] = arr[i];
     }
 
-    steady_clock::time_point stdBegin = steady_clock::now();
-    std::sort(arr, arr + arraySize);
-    steady_clock::time_point stdEnd = steady_clock::now();
-
-    steady_clock::time_point TimBegin = steady_clock::now();
-    TimSort(arr2, arr2 + arraySize);
-    steady_clock::time_point TimEnd = steady_clock::now();
-
-    double stdSortTimeMs = duration_cast<nanoseconds>(stdEnd - stdBegin).count() / 1e6;
-    double TimSortTimeMs = duration_cast<nanoseconds>(TimEnd - TimBegin).count() / 1e6;
-
-    bool ok = true;
-    for (int i = 0; i < arraySize; ++i) {
-        ok &= arr[i] == arr2[i];
-    }
-    if (ok) {
-        std::cout << "std::sort time is " << stdSortTimeMs << " ms." << std::endl;
-        std::cout << "TimSort time is " << TimSortTimeMs << " ms." << std::endl;
-        std::cout << "std::sort is " << TimSortTimeMs / stdSortTimeMs << " times faster than TimSort" << std::endl;
-    }
+    bool ok = compareSorts(arr, arr + arraySize, arr2, arr2 + arraySize, std::less<int>(), timsort::StdTimSortParams());
     delete[] arr;
     delete[] arr2;
     return ok;
