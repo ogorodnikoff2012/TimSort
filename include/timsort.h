@@ -165,14 +165,16 @@ void TimSort(RAIterator begin, RAIterator end, const timsort::ITimSortParams &pa
     TimSort(begin, end, std::less<typename std::iterator_traits<RAIterator>::value_type>(), params);
 }
 
-template <class RAIterator, class Comparator, class = typename std::enable_if<!std::is_base_of<timsort::ITimSortParams, Comparator>::value>::type>
+template <class RAIterator, class Comparator, class = 
+        typename std::enable_if<!std::is_base_of<timsort::ITimSortParams, Comparator>::value>::type>
 void TimSort(RAIterator begin, RAIterator end, Comparator cmp) {
     TimSort(begin, end, cmp, timsort::StdTimSortParams());
 }
 
 template <class RAIterator>
 void TimSort(RAIterator begin, RAIterator end) {
-    TimSort(begin, end, std::less<typename std::iterator_traits<RAIterator>::value_type>(), timsort::StdTimSortParams());
+    TimSort(begin, end, std::less<typename std::iterator_traits<RAIterator>::value_type>(), 
+            timsort::StdTimSortParams());
 }
 
 #endif // TIMSORT_TIMSORT_H
