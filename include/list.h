@@ -36,7 +36,7 @@ namespace timsort {
             delete toBeErased;
         }
 
-        ListNode *pre_begin_, *end_;
+        ListNode *preBegin_, *end_;
         std::size_t size_;
     public:
         typedef T value_type;
@@ -47,9 +47,8 @@ namespace timsort {
         typedef value_type *pointer;
         typedef const value_type *const_pointer;
 
-        List() : pre_begin_(new ListNode), end_(new ListNode), size_(0) {
-            pre_begin_->right = end_;
-            end_->left = pre_begin_;
+        List() : preBegin_(new ListNode), end_(new ListNode), size_(0) {
+            connect(preBegin_, end_);
         } 
         class iterator {
         private:
@@ -94,7 +93,7 @@ namespace timsort {
             friend class List<T>;
         };
         iterator begin() const {
-            return iterator(pre_begin_->right);
+            return iterator(preBegin_->right);
         }
         iterator end() const {
             return iterator(end_);

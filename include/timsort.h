@@ -80,6 +80,7 @@ namespace timsort {
                 runList.erase(itY);
                 appendRun(runList, itX, cmp, params);
                 appendRun(runList, itZ, cmp, params);
+                break;
         }
     }
 };
@@ -122,13 +123,13 @@ void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::IT
         while (runEnd != end && runLength < minrun) {
             ++runEnd;
             ++runLength;
-            if (currentRunSorted && cmp(*(runEnd - 2), *(runEnd - 1)) != isIncreasing) {
+            if (currentRunSorted && !cmp(*(runEnd - 1), *(runEnd - 2)) != isIncreasing) {
                 currentRunSorted = false;
             }
         }
 
         if (currentRunSorted) {
-            while (runEnd != end && cmp(*(runEnd - 1), *runEnd) == isIncreasing) {
+            while (runEnd != end && !cmp(*runEnd, *(runEnd - 1)) == isIncreasing) {
                 ++runEnd;
                 ++runLength;
             }
