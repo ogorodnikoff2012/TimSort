@@ -49,7 +49,6 @@ bool compareSorts(RAIter1 beginTim, RAIter1 endTim, RAIter2 beginStd, RAIter2 en
 }
 
 bool testVectorOfRandomInts(int vectorSize) {
-    using namespace std::chrono;
     std::vector<int> v(vectorSize);
     v[0] = testing::rand(true);
     for (int i = 1; i < vectorSize; ++i) {
@@ -60,7 +59,6 @@ bool testVectorOfRandomInts(int vectorSize) {
 }
 
 bool testArrayOfRandomInts(int arraySize) {
-    using namespace std::chrono;
     int *arr = new int[arraySize];
     arr[0] = testing::rand(true);
     for (int i = 1; i < arraySize; ++i) {
@@ -199,7 +197,6 @@ public:
 };
 
 bool testVectorOfRandomPoints(int vectorSize) {
-    using namespace std::chrono;
     std::vector<Point3D> v(vectorSize);
     v[0] = Point3D(testing::rand(true), testing::rand(), testing::rand());
     for (int i = 1; i < vectorSize; ++i) {
@@ -224,6 +221,77 @@ bool testVariousVectorsOfRandomPoints() {
     return true;
 }
 
+bool testVectorOfRandomIntsWithCustomParams(int vectorSize, const timsort::ITimSortParams &params) {
+    std::vector<int> v(vectorSize);
+    v[0] = testing::rand(true);
+    for (int i = 1; i < vectorSize; ++i) {
+        v[i] = rand();
+    }
+    std::vector<int> v2(v);
+    return compareSorts(v.begin(), v.end(), v2.begin(), v2.end(), std::less<int>(), params);
+}
+
+class CustomTimSortParams : public timsort::ITimSortParams {
+    typedef std::uint32_t ui32;
+    ui32 gallop_;
+    timsort::EWhatMerge whatMergeIfXLessThanZ_;
+    static timsort::EWhatMerge oppositeChoice(timsort::EWhatMerge whatMerge) {
+        switch (whatMerge) {
+            case timsort::WM_MergeYZ:
+                return timsort::WM_MergeXY;
+            case timsort::WM_MergeXY:
+                return timsort::WM_MergeYZ;
+            default:
+                return timsort::WM_NoMerge;
+        }
+    }
+public:
+    CustomTimSortParams(ui32 gallop, timsort::EWhatMerge whatMergeIfXLessThanZ) :
+            gallop_(gallop), whatMergeIfXLessThanZ_(whatMergeIfXLessThanZ) {}
+
+    ui32 minRun(ui32 length) const {
+        ui32 r = 0;
+        while (length >= 64) {
+            r |= length & 1;
+            length >>= 1;
+        }
+        return length + r;
+    }
+
+    bool needMerge(ui32 lenX, ui32 lenY) const {
+        return lenY >= lenX;
+    }
+
+    timsort::EWhatMerge whatMerge(ui32 lenX, ui32 lenY, ui32 lenZ) const {
+        if (lenZ >= lenY || lenZ + lenY >= lenX) {
+            return lenX < lenZ ? whatMergeIfXLessThanZ_ : oppositeChoice(whatMergeIfXLessThanZ_);
+        } else {
+            return timsort::WM_NoMerge;
+        }
+    }
+
+    ui32 getGallop() const {
+        return gallop_;
+    }
+
+};
+
+bool testVectorOfRandomIntsWithVariousParams() {
+    const int LENGTH = 100000;
+    int gallop = 5;
+    for (int i = 0; i < 10; ++i, gallop += 5) {
+        std::cout << testing::SUBTEST_HEADER << (i + 1) << ". Gallop = " << gallop << ", length = " << LENGTH <<
+                  ", X < Z => WM_MergeXY:" << std::endl;
+        bool ok = testVectorOfRandomIntsWithCustomParams(LENGTH, CustomTimSortParams(gallop, timsort::WM_MergeXY));
+        std::cout << (ok ? testing::VERDICT_OK : testing::VERDICT_FAILED) << std::endl;
+        if (!ok) {
+            return false;
+        }
+    }
+    return true;
+
+}
+
 namespace testing {
     Test tests[] = {
             Test{"Vectors of random values", testVariousVectorsOfRandomInts},
@@ -231,6 +299,7 @@ namespace testing {
             Test{"Partially sorted vectors", testPartiallySortedVectors},
             Test{"Concatenated sorted vectors", testVariousConcatenatedSortedVectors},
             Test{"Vectors of random 3D points (Point3D)", testVariousVectorsOfRandomPoints},
+            Test{"Various run merging policy", testVectorOfRandomIntsWithVariousParams},
     };
     std::size_t testsCount = sizeof(tests) / sizeof(Test);
 
