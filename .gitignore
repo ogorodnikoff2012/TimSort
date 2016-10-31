@@ -1,5 +1,6 @@
 *.tgz
 *.aux
 *.log
+*.out
 *.pyg
 bin/*
