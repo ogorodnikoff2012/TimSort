@@ -19,7 +19,8 @@ namespace timsort {
         std::size_t dummyLength;
         TRun(RAIterator begin, RAIterator end, std::size_t dummyLength = 0) : begin(begin), 
                 end(end), dummyLength(dummyLength) {  }
-        TRun(const TRun<RAIterator> &run) : begin(run.begin), end(run.end), dummyLength(run.dummyLength) {}
+        TRun(const TRun<RAIterator> &run) : begin(run.begin), end(run.end), 
+                dummyLength(run.dummyLength) {}
         std::size_t length() const {
             return dummyLength ? dummyLength : std::distance(begin, end);
         }
