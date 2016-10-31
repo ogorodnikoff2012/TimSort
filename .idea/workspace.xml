@@ -15,8 +15,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1b259b-1f45-4db1-beaa-de9456175355" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mainTest.cpp" afterPath="$PROJECT_DIR$/src/mainTest.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tests.cpp" afterPath="$PROJECT_DIR$/src/tests.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/itertools.h" afterPath="$PROJECT_DIR$/include/itertools.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/utils.h" afterPath="$PROJECT_DIR$/include/utils.h" />
     </list>
     <ignored path="timsort.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,36 +36,108 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tests.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tests.cpp">
+      <file leaf-file-name="timsort.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/timsort.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
-              <folding>
-                <element signature="e#436#484#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stdTimSortParams.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/stdTimSortParams.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainTest.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mainTest.cpp">
+      <file leaf-file-name="list.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/list.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+            <state relative-caret-position="3888">
+              <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/utils.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itertools.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/itertools.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
-                <element signature="e#40#58#0" expanded="true" />
+                <element signature="e#57#75#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="merge.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/merge.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adaptiveLowerBound.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/adaptiveLowerBound.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1116">
+              <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inplaceMerge.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/inplaceMerge.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <folding>
+                <element signature="e#65#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slowsort.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/slowsort.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <folding>
+                <element signature="e#55#74#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="params.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/params.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,11 +154,8 @@
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/tests.h" />
         <option value="$PROJECT_DIR$/include/inplaceMerge.h" />
-        <option value="$PROJECT_DIR$/include/itertools.h" />
-        <option value="$PROJECT_DIR$/include/merge.h" />
         <option value="$PROJECT_DIR$/include/params.h" />
         <option value="$PROJECT_DIR$/include/slowsort.h" />
-        <option value="$PROJECT_DIR$/include/utils.h" />
         <option value="$PROJECT_DIR$/include/adaptiveLowerBound.h" />
         <option value="$PROJECT_DIR$/include/debug.h" />
         <option value="$PROJECT_DIR$/include/timsort.h" />
@@ -95,6 +164,9 @@
         <option value="$PROJECT_DIR$/include/tests.h" />
         <option value="$PROJECT_DIR$/src/tests.cpp" />
         <option value="$PROJECT_DIR$/src/mainTest.cpp" />
+        <option value="$PROJECT_DIR$/include/utils.h" />
+        <option value="$PROJECT_DIR$/include/itertools.h" />
+        <option value="$PROJECT_DIR$/include/merge.h" />
       </list>
     </option>
   </component>
@@ -163,6 +235,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timsort" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timsort" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -382,12 +468,12 @@
       <workItem from="1477778347676" duration="6091000" />
       <workItem from="1477822602032" duration="5429000" />
       <workItem from="1477897200703" duration="8586000" />
-      <workItem from="1477924604825" duration="1784000" />
+      <workItem from="1477924604825" duration="2510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21890000" />
+    <option name="totallyTimeSpent" value="22616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="3192" height="1750" extended-state="4" />
@@ -395,7 +481,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12074992" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294271" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987687" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -464,7 +550,7 @@
         <state relative-caret-position="468">
           <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
           <folding>
-            <element signature="e#89#110#0" expanded="true" />
+            <element signature="e#89#110#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -475,6 +561,28 @@
           <caret line="74" column="119" selection-start-line="74" selection-start-column="119" selection-end-line="74" selection-end-column="119" />
           <folding>
             <element signature="e#436#484#0" expanded="true" />
+            <marker date="1477925861088" expanded="true" signature="626:1605" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="1651:1936" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="1980:2409" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="2449:2957" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="2996:3503" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="3548:3959" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="3995:4506" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="4575:5033" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="5079:6144" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6161:6734" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6455:6614" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6664:6732" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6761:6993" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6938:6991" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="7042:7504" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="7546:8056" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="8157:8421" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="8482:9735" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="8659:8934" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="10360:11448" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="10981:11190" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="11217:11445" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -483,6 +591,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3888">
           <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -497,6 +606,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5508">
           <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -518,6 +628,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1116">
           <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -525,13 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -563,56 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/inplaceMerge.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/itertools.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="187" column="28" selection-start-line="187" selection-start-column="28" selection-end-line="187" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/merge.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/slowsort.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1332">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/utils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/params.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/testList.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
@@ -625,13 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12852">
           <caret line="357" column="0" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/adaptiveLowerBound.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -649,20 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/list.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3888">
-          <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/timsort.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5508">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -675,7 +708,7 @@
         <state relative-caret-position="900">
           <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
           <folding>
-            <element signature="e#89#110#0" expanded="true" />
+            <element signature="e#89#110#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,6 +719,28 @@
           <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
           <folding>
             <element signature="e#436#484#0" expanded="true" />
+            <marker date="1477925861088" expanded="true" signature="626:1605" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="1651:1936" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="1980:2409" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="2449:2957" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="2996:3503" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="3548:3959" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="3995:4506" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="4575:5033" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="5079:6144" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6161:6734" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6455:6614" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6664:6732" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6761:6993" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="6938:6991" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="7042:7504" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="7546:8056" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="8157:8421" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="8482:9735" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="8659:8934" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="10360:11448" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="10981:11190" ph="{...}" />
+            <marker date="1477925861088" expanded="true" signature="11217:11445" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -704,7 +759,102 @@
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding>
             <element signature="e#40#58#0" expanded="true" />
+            <marker date="1477926378548" expanded="true" signature="146:643" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/timsort.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/list.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3888">
+          <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/itertools.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#57#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/merge.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/adaptiveLowerBound.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/inplaceMerge.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <folding>
+            <element signature="e#65#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/slowsort.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <folding>
+            <element signature="e#55#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/params.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

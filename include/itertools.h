@@ -3,7 +3,6 @@
 
 #include <utility>
 #include <iterator>
-#include "utils.h"
 
 namespace timsort {
 
