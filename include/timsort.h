@@ -87,6 +87,41 @@ namespace timsort {
 };
 
 template <class RAIterator, class Comparator>
+bool collectMinRun(RAIterator end, RAIterator &runBegin, RAIterator &runEnd, Comparator cmp,
+                   std::size_t &runLength, std::size_t minrun, bool &isIncreasing) {
+    runEnd = runBegin + 1;
+    runLength = 1;
+    if (runEnd == end) {
+        return true;
+    }
+
+    ++runEnd;
+    ++runLength;
+    isIncreasing = !cmp(*(runBegin + 1), *runBegin); // !(B < A) == A <= B,
+    // non-strict increasing
+    bool currentRunSorted = true;
+    while (runEnd != end && runLength < minrun) {
+        ++runEnd;
+        ++runLength;
+        if (currentRunSorted && !cmp(*(runEnd - 1), *(runEnd - 2)) != isIncreasing) {
+            currentRunSorted = false;
+        }
+    }
+    return currentRunSorted;
+}
+
+template <class RAIterator, class Comparator>
+void extendRun(RAIterator end, RAIterator &runBegin, RAIterator &runEnd, Comparator cmp, bool isIncreasing) {
+    while (runEnd != end && !cmp(*runEnd, *(runEnd - 1)) == isIncreasing) {
+        ++runEnd;
+//        ++runLength;
+    }
+    if (!isIncreasing) {
+        timsort::reverse(runBegin, runEnd);
+    }
+}
+
+template <class RAIterator, class Comparator>
 void splitInRuns(RAIterator begin, RAIterator end, Comparator cmp, const timsort::ITimSortParams &params,
                  timsort::List<timsort::TRun<RAIterator>> &runs, std::size_t length, std::size_t minrun) {
     using timsort::List;
@@ -96,35 +131,13 @@ void splitInRuns(RAIterator begin, RAIterator end, Comparator cmp, const timsort
 
     RAIterator runBegin = begin;
     while (runBegin != end) {
-        RAIterator runEnd = runBegin + 1;
-        std::size_t runLength = 1;
-        if (runEnd == end) {
-            runs.pushBack(Run(runBegin, runEnd));
-            runBegin = end;
-            break;
-        }
-
-        ++runEnd;
-        ++runLength;
-        bool isIncreasing = !cmp(*(runBegin + 1), *runBegin); // !(B < A) == A <= B,
-        // non-strict increasing
-        bool currentRunSorted = true;
-        while (runEnd != end && runLength < minrun) {
-            ++runEnd;
-            ++runLength;
-            if (currentRunSorted && !cmp(*(runEnd - 1), *(runEnd - 2)) != isIncreasing) {
-                currentRunSorted = false;
-            }
-        }
+        RAIterator runEnd;
+        std::size_t runLength;
+        bool isIncreasing;
+        bool currentRunSorted = collectMinRun(end, runBegin, runEnd, cmp, runLength, minrun, isIncreasing);
 
         if (currentRunSorted) {
-            while (runEnd != end && !cmp(*runEnd, *(runEnd - 1)) == isIncreasing) {
-                ++runEnd;
-                ++runLength;
-            }
-            if (!isIncreasing) {
-                timsort::reverse(runBegin, runEnd);
-            }
+            extendRun(end, runBegin, runEnd, cmp, isIncreasing);
         } else {
             insertionSort(runBegin, runEnd, cmp);
         }
