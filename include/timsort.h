@@ -86,26 +86,14 @@ namespace timsort {
     }
 };
 
-// template arguments are copied from http://stackoverflow.com/questions/2447458/
 template <class RAIterator, class Comparator>
-void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::ITimSortParams &params) {
-    using timsort::TRun;
+void splitInRuns(RAIterator begin, RAIterator end, Comparator cmp, const timsort::ITimSortParams &params,
+                 timsort::List<timsort::TRun<RAIterator>> &runs, std::size_t length, std::size_t minrun) {
     using timsort::List;
     using timsort::insertionSort;
 
-    typedef TRun<RAIterator> Run;
+    typedef timsort::TRun<RAIterator> Run;
 
-    // step 0: get minimum run length
-    std::size_t length = std::distance(begin, end);
-    std::size_t minrun = params.minRun(length);
-    
-    // step 1: split array into runs
-    List<Run> runs;
-
-    // Add dummy runs
-    runs.pushBack(Run(begin, end, 2 * length + 2));
-    runs.pushBack(Run(begin, end, length + 1));
-    
     RAIterator runBegin = begin;
     while (runBegin != end) {
         RAIterator runEnd = runBegin + 1;
@@ -118,8 +106,8 @@ void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::IT
 
         ++runEnd;
         ++runLength;
-        bool isIncreasing = !cmp(*(runBegin + 1), *runBegin); // !(B < A) == A <= B, 
-                                                              // non-strict increasing
+        bool isIncreasing = !cmp(*(runBegin + 1), *runBegin); // !(B < A) == A <= B,
+        // non-strict increasing
         bool currentRunSorted = true;
         while (runEnd != end && runLength < minrun) {
             ++runEnd;
@@ -143,6 +131,30 @@ void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::IT
         runs.pushBack(Run(runBegin, runEnd));
         runBegin = runEnd;
     }
+
+}
+
+// template arguments are copied from http://stackoverflow.com/questions/2447458/
+template <class RAIterator, class Comparator>
+void TimSort(RAIterator begin, RAIterator end, Comparator cmp, const timsort::ITimSortParams &params) {
+    using timsort::TRun;
+    using timsort::List;
+    using timsort::insertionSort;
+
+    typedef TRun<RAIterator> Run;
+
+    // step 0: get minimum run length
+    std::size_t length = std::distance(begin, end);
+    std::size_t minrun = params.minRun(length);
+    
+    // step 1: split array into runs
+    List<Run> runs;
+
+    // Add dummy runs
+    runs.pushBack(Run(begin, end, 2 * length + 2));
+    runs.pushBack(Run(begin, end, length + 1));
+
+    splitInRuns(begin, end, cmp, params, runs, length, minrun);
     
     // step 2: merging
     auto runIterator = runs.begin();

@@ -4,3 +4,5 @@
 *.out
 *.pyg
 bin/*
+.idea/*
+cmake-build-debug/*
